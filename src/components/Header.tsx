@@ -1,7 +1,6 @@
 // Libraries
 import { POMODORO_OPTIONS } from '@/shared/constants';
-import { TimerType } from '@/shared/sharedTypes';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 interface HeaderProps {

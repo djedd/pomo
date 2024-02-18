@@ -5,7 +5,8 @@
     "react-dom": "18.2.0",
     "react-native": "0.73.2",
     "react-native-web": "~0.19.6",
-    "expo-status-bar": "~1.11.1"
+    "expo-status-bar": "~1.11.1",
+    "expo-av": "~13.10.5"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
