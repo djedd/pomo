@@ -2,7 +2,7 @@
 import Header from '@/components/Header';
 import Timer from '@/components/Timer';
 import TimerButton from '@/components/TimerButton';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Platform, SafeAreaView } from 'react-native';
 import { Audio } from "expo-av";
 
@@ -23,6 +23,25 @@ export default function App(): JSX.Element {
     )
     await sound.playAsync();
   }
+
+  useEffect(() => {
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(() => {
+        setTime(time -1);
+      }, 10)
+    } else {
+      clearInterval(interval);
+    }
+
+    if (time === 0) {
+      setIsActive(false);
+      setIsWorking((prev) => !prev);
+      setTime(isWorking ? 300 : 1500);
+    }
+
+    return () => clearInterval(interval);
+  }, [isActive, time]);
 
   return (
     <SafeAreaView
